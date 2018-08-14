@@ -1,0 +1,167 @@
+@Mock
+	CustomerChatRepository chatRepository;
+
+	ChatService chatService;
+
+	@Before
+	public void setUp() throws Exception {
+		MockitoAnnotations.initMocks(this);
+
+		chatService = new ChatServiceImpl(chatRepository);
+	}
+
+	@Test
+	public void testSendMessage() {
+		Customer customer = new Customer();
+		customer.setId(100);
+		customer.setName("Raswini");
+		customer.setAddress("Pune");
+		customer.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findCustomer(100)).thenReturn(customer);
+		Merchant merchant = new Merchant();
+		merchant.setId(200);
+		merchant.setName("Raswini Reddy");
+		merchant.setAddress("HYD");
+		merchant.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findMerchant(200)).thenReturn(merchant);
+		String message = "hello";
+		assertEquals(true, chatService.sendMessage(customer.getId(), merchant.getId(), message, new Date()));
+	}
+
+	@Test
+	public void testSender() {
+		Customer customer = new Customer();
+		customer.setId(100);
+		customer.setName("Raswini");
+		customer.setAddress("Pune");
+		customer.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findCustomer(100)).thenReturn(customer);
+		assertNotNull(customer);
+
+		Merchant merchant = new Merchant();
+		merchant.setId(200);
+		merchant.setName("Raswini Reddy");
+		merchant.setAddress("HYD");
+		merchant.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findMerchant(200)).thenReturn(merchant);
+		String message = "hello";
+		assertEquals(true, chatService.sendMessage(customer.getId(), merchant.getId(), message, new Date()));
+	}
+
+	@Test
+	public void testReceiver() {
+		Merchant merchant = new Merchant();
+		merchant.setId(200);
+		merchant.setName("Raswini Reddy");
+		merchant.setAddress("HYD");
+		merchant.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findMerchant(200)).thenReturn(merchant);
+		assertNotNull(merchant);
+	}
+
+	@Test
+	public void testMessage() {
+		String message = "hello";
+		assertNotNull(message);
+	}
+
+	@Test
+	public void testNewConversation() {
+
+	}
+
+	@Test
+	public void testPresentConversation() {
+
+	}
+
+	@Test
+	public void testSendingHyperlink() {
+		Customer customer = new Customer();
+		customer.setId(100);
+		customer.setName("Raswini");
+		customer.setAddress("Pune");
+		customer.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findCustomer(100)).thenReturn(customer);
+		Merchant merchant = new Merchant();
+		merchant.setId(200);
+		merchant.setName("Raswini Reddy");
+		merchant.setAddress("HYD");
+		merchant.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findMerchant(200)).thenReturn(merchant);
+		String message = "https://www.google.co.in/";
+		assertEquals(true, chatService.sendMessage(customer.getId(), merchant.getId(), message, new Date()));
+	}
+
+	@Test
+	public void testSendingMessageToOfflineUser() {
+
+	}
+
+	@Test
+	public void testTimeOfMessage() {
+		Customer customer = new Customer();
+		customer.setId(100);
+		customer.setName("Raswini");
+		customer.setAddress("Pune");
+		customer.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findCustomer(100)).thenReturn(customer);
+		Merchant merchant = new Merchant();
+		merchant.setId(200);
+		merchant.setName("Raswini Reddy");
+		merchant.setAddress("HYD");
+		merchant.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findMerchant(200)).thenReturn(merchant);
+		String message = "https://www.google.co.in/";
+		Date date = new Date();
+		chatService.sendMessage(customer.getId(), merchant.getId(), message, date);
+		assertEquals(new Date(), date);
+	}
+
+	@Test
+	public void testDeleteChat() {
+
+	}
+
+	@Test
+	public void testSedingEmail() {
+		Customer customer = new Customer();
+		customer.setId(100);
+		customer.setName("Raswini");
+		customer.setAddress("Pune");
+		customer.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findCustomer(100)).thenReturn(customer);
+		Merchant merchant = new Merchant();
+		merchant.setId(200);
+		merchant.setName("Raswini Reddy");
+		merchant.setAddress("HYD");
+		merchant.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findMerchant(200)).thenReturn(merchant);
+		String message = "raswini.thummala@capgemini.com";
+		assertEquals(true, chatService.sendMessage(customer.getId(), merchant.getId(), message, new Date()));
+	}
+
+	@Test
+	public void testCopyPaste() {
+		Clipboard clipboard = new Clipboard("Hi");
+
+		Customer customer = new Customer();
+		customer.setId(100);
+		customer.setName("Raswini");
+		customer.setAddress("Pune");
+		customer.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findCustomer(100)).thenReturn(customer);
+		Merchant merchant = new Merchant();
+		merchant.setId(200);
+		merchant.setName("Raswini Reddy");
+		merchant.setAddress("HYD");
+		merchant.setEmail("raswinireddy@gmail.com");
+		when(chatRepository.findMerchant(200)).thenReturn(merchant);
+		assertEquals(true,
+				chatService.sendMessage(customer.getId(), merchant.getId(), clipboard.toString(), new Date()));
+	}
+
+	@Test
+	public void testEnterKeyToSend() {
+
+	}

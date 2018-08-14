@@ -1,0 +1,111 @@
+public boolean sendMessage(int senderId, int receiverId, String message, Date dateTime);
+
+	public List loadMessages(int userId);
+
+	public List loadChat(int userId);
+
+	public boolean deleteChat(int userId);
+
+
+Test Scenarios for Filter Criteria
+1. The user should be able to filter results using all parameters on the page.
+2. Refine search functionality should load search page with all user-selected search parameters.
+3. When there are at least one filter criteria required to perform the search operation, make sure proper error message is displayed when the user submits the page without selecting any filter criteria.
+4. When at least one filter criteria selection is not compulsory, the user should be able to submit the page and the default search criteria should get used to query results.
+5. Proper validation messages should be displayed for all invalid values for filter criteria.
+
+
+Test Scenarios for Result Grid
+1. Page loading symbol should be displayed when it’s taking more than default time to load the result page.
+2. Check if all the search parameters are used to fetch data shown on the result grid.
+3. The total number of results should be displayed in the result grid.
+4. Search criteria used for searching should be displayed in the result grid.
+5. Result grid values should be sorted by default column.
+6. Sorted columns should be displayed with a sorting icon.
+7. Result grids should include all the specified columns with correct values.
+8. Ascending and descending sorting functionality should work for columns supported with data sorting.
+9. Result grids should be displayed with proper column and row spacing.
+10. Pagination should be enabled when there are more results than the default result count per page.
+11. Check for Next, Previous, First and Last page pagination functionality.
+12. Duplicate records should not be displayed in the result grid.
+13. Check if all the columns are visible and horizontal scrollbar is enabled if necessary.
+14. Check the data for dynamic columns (columns whose values are calculated dynamically based on the other column values).
+15. For result grids showing reports check ‘Totals’ row and verify total for every column.
+16. For result grids showing reports check ‘Totals’ row data when pagination is enabled and the user gets navigated to the next page.
+17. Check if proper symbols are used for displaying column values e.g. % symbol should be displayed for percentage calculation.
+18. Check result grid data to know if the date range is enabled.
+
+
+Search Scenarios
+
+Search results displayed should be relevant to search keyword
+% sign in search keyword should not redirect to 404 ERROR
+Application should not crash if user inserted % in search field
+When user start typing word in text box it should suggest words that matches typed keyword
+There should be pre-defined search criteria for auto complete e.g. after typing first 3 letter it should suggest matching keyword
+When user clicks on any link from result and navigates back, then result should be maintained
+After clicking Search field - search history should be displayed (latest search keyword)
+All search keyword/filters should get cleared on clicking Reset button
+Search results should be cleared on clicking clear search button
+History displayed in search field should be relevant to logged in user only
+Pagination should be tested for searches returning high number of records
+Total number of search records/results should be displayed on page
+Search keyword should get highlighted with color in the search results
+For ecommerce sites - search keyword should suggest similar kind of product/items
+For Advanced Search - limited search filters should be provided
+Water text should be provided for user to understand what to search
+Validate search rules defined for “Exact Match” with the search key word
+Validate search rules defined for “Similar Match” with the search key word
+Validate search rules defined to search with a set of keywords
+User should be able to search when he enters the keyword and hits ‘Enter’ button on keyboard
+
+
+Search functionality applicable test cases:
+1) Cursor position on starting position in search textbox
+2) Search with valid and invalid inputs
+3) Search with special characters ( like a* should gives 
+all responses starting with a) incase application is 
+providing this functionality.
+4) Search results if more should be spread over different 
+pages with hyperlinks
+5) Junk characters in search textbox
+6) Search response time should be checked
+
+
+1)Check By default whether the cursor is on Search Text Field or Not.
+2)Go to Search Text Field,
+3)Enter Valid Input,Check Whether it is Displaying Related Matching Answers.
+4)Enter Invalid Inputs,It should Display Error Pop up Message.
+5)Enter Partial name and Check Whether it is Displaying Related Matching Answers.
+6)Enter Numbers and Check Whether it is Displaying Related Matching Answers.
+7)Enter Special Characters and Check Whether it is Displaying Related Matching Answers.
+8)Enter Valid Input and Press Enter.Check Whether ENTER Button is working or not.
+9)Enter Alpha Numeric Characters And Check Check Whether it is Displaying Related Matching Answers.
+10)Check Whether Search Box Symbol is there or Not?
+11)Enter Date Format and Check Whether it is Displaying Related Matching Answers.
+12)Write Product Name in Notepad and Copy it,Go to Search box,Paste it.Check Whether it is Accepting Copied Text or not.
+13)Copy Encrypted Text and paste it in Search Box Check whether Search Box is Allowing Users to Paste Encrypted Text.
+
+
+Answer / Preethi
+
+1.Check Search Box is Present or not?
+2.Is able to use?
+3.Displayed the Search box is Top of the Page
+4.Does Search box is Enable to use?
+5.Entering valid data in searchbox,its able to displayed the results 
+6.Entering invalid data,dispalyed alert message
+7.Entering Valid data in Searchbox ,Should have displayed all records in single pages.
+8.Entering Space with Valid data,Should have displayed alert message.
+9.Entering Valid data with Space ,Should have displayed alert message
+10.Entering Single Character ,Displayed the correspoding result.
+11.Check the SearchBox Lenght
+12.Does Cursor appers while typing to search
+13.Does accept Enterkey instead of SearchButton
+14.Entering Valid data,Should have displayed all records in Rankwise manner
+15.Proper Message Should be displayed,When there are no results
+16.Entering Valid Data,even if enter mix of upprercase and lowercase character.
+17.Enter Valid Data,Should have displayed related matching records.
+18.Entering valid data ,should have displayed properly aligned.
+19.Does SearchBox appers onMobile?
+20.Does accept emptybox to search?
